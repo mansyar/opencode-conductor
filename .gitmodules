@@ -1,3 +1,0 @@
-[submodule "legacy/conductor"]
-	path = legacy/conductor
-	url = git@github.com:gemini-cli-extensions/conductor.git
