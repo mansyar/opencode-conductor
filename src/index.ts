@@ -4,6 +4,7 @@ import * as path from "path";
 import ImplementPrompt from "./prompts/conductor/implement.json" with { type: "json" };
 import NewTrackPrompt from "./prompts/conductor/newTrack.json" with { type: "json" };
 import RevertPrompt from "./prompts/conductor/revert.json" with { type: "json" };
+import ReviewPrompt from "./prompts/conductor/review.json" with { type: "json" };
 import SetupPrompt from "./prompts/conductor/setup.json" with { type: "json" };
 import StatusPrompt from "./prompts/conductor/status.json" with { type: "json" };
 
@@ -85,6 +86,17 @@ export const MyPlugin: Plugin = async ({
           template: RevertPrompt.prompt,
           description: RevertPrompt.description,
         },
+        "conductor:review": {
+          template: ReviewPrompt.prompt + `
+            Environment Details: 
+              - Directory: ${directory}
+              - Conductor Setup: ${setupOccurred}
+              - Current Conductor Files (Location: ${directory}/conductor)
+                  File Tree:
+                    ${fileHeirarchy}
+          `,
+          description: ReviewPrompt.description,
+        },
         "conductor:setup": {
           template: SetupPrompt.prompt + `
             Environment Details: 
@@ -94,7 +106,7 @@ export const MyPlugin: Plugin = async ({
                 File Tree:
                   ${fileHeirarchy}
 
-              **CRITICAL ENVIRONTMENTAL OVERRIDE:**: You are not Gemini CLI or a project. You should use ./config/opencode/node_modules/opencode-conductor-plugin for setup operations. .gemini files are not present, use .gitignore
+              **CRITICAL ENVIRONMENTAL OVERRIDE:** You are an OpenCode plugin. Use .opencodeignore or .gitignore for analysis. .gemini files are not used in this environment.
           `,
           description: SetupPrompt.description,
         },

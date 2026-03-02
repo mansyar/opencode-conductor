@@ -22,8 +22,8 @@ async function loadPrompt(
 ) {
   // Try src/prompts first, then relative to project root
   const pathsToTry = [
-    join(__dirname, "..", "prompts", filename),
-    join(__dirname, "..", "..", filename)
+    join(__dirname, "..", "..", "legacy", "conductor", "commands", "conductor", filename),
+    join(__dirname, "..", "prompts", "conductor", filename.replace(".toml", ".json"))
   ]
 
   let content = ""
@@ -48,16 +48,25 @@ async function loadPrompt(
   }
 
   try {
-    const descMatch = content.match(/description\s*=\s*"([^"]+)"/)
-    const description = descMatch ? descMatch[1] : "Conductor Command"
-    const promptMatch = content.match(/prompt\s*=\s*"""([\s\S]*?)"""/)
-    let promptText = promptMatch ? promptMatch[1] : ""
+    let promptText = ""
+    let description = "Conductor Command"
+
+    if (successPath.endsWith(".json")) {
+      const parsed = JSON.parse(content)
+      promptText = parsed.prompt || ""
+      description = parsed.description || description
+    } else {
+      const descMatch = content.match(/description\s*=\s*"([^"]+)"/)
+      description = descMatch ? descMatch[1] : description
+      const promptMatch = content.match(/prompt\s*=\s*"""([\s\S]*?)"""/)
+      promptText = promptMatch ? promptMatch[1] : ""
+    }
 
     if (!promptText)
       throw new Error(`Could not parse prompt text from ${filename}`)
 
     const defaults = {
-      templatesDir: join(dirname(dirname(__dirname)), "templates"),
+      templatesDir: join(dirname(__dirname), "templates"),
     }
 
     const finalReplacements = { ...defaults, ...replacements }

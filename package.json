@@ -25,7 +25,8 @@
   "types": "dist/index.d.ts",
   "files": [
     "dist",
-    "scripts"
+    "scripts",
+    "legacy"
   ],
   "scripts": {
     "test": "vitest run",

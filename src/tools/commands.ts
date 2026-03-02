@@ -71,6 +71,19 @@ export const revertCommand = createConductorCommand({
   },
 })
 
+export const reviewCommand = createConductorCommand({
+  name: "review.toml",
+  description: "Directives lookup tool for reviewing a track or uncommitted changes",
+  args: {
+    args: tool.schema.string().optional().describe("Specific track name or 'current' for uncommitted changes"),
+  },
+  additionalContext: async (ctx, args) => {
+    return {
+      args: args.args || "",
+    }
+  },
+})
+
 // Export as functions for backward compatibility
 export function createSetupTool(ctx: any): ToolDefinition {
   return setupCommand(ctx)
@@ -90,4 +103,8 @@ export function createStatusTool(ctx: any): ToolDefinition {
 
 export function createRevertTool(ctx: any): ToolDefinition {
   return revertCommand(ctx)
+}
+
+export function createReviewTool(ctx: any): ToolDefinition {
+  return reviewCommand(ctx)
 }
