@@ -6,7 +6,7 @@ import {
   formatFileHierarchy, 
   formatFilesForLLM, 
   isConductorSetup 
-} from "./workspace";
+} from "./workspace.js";
 
 vi.mock("fs");
 
