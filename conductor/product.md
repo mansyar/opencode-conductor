@@ -11,7 +11,6 @@ Conductor is a specialized OpenCode plugin designed to enforce a rigorous, Conte
 ## Core Goals
 1. **Enforce Development Protocol**: Ensure every project follows the Context → Spec → Plan → Implement → Review lifecycle
 2. **Manage Project Tracks**: Organize work into manageable units (features/bug fixes) with detailed specifications and implementation plans
-3. **Integrate with OhMyOpenCode**: Work seamlessly alongside Sisyphus for multi-agent team experiences
 
 ## Key Features
 - **Slash Commands**: Native commands like `/conductor:setup`, `/conductor:newTrack`, `/conductor:implement`, `/conductor:review` for frictionless project management
