@@ -6,6 +6,7 @@ import {
   createImplementTool,
   createStatusTool,
   createRevertTool,
+  createCheckpointTool,
 } from "./commands.js"
 import { readFile } from "fs/promises"
 
@@ -140,6 +141,21 @@ describe("Command Tools", () => {
       const tool = createRevertTool(mockCtx)
       const result = await tool.execute({ target: "track 1" }, mockToolContext)
       expect(JSON.parse(result)).toEqual({ directives: "Target: track 1" })
+    })
+  })
+
+  describe("createCheckpointTool", () => {
+    it("should create a tool with correct description", () => {
+      const tool = createCheckpointTool(mockCtx)
+      expect(tool.description).toContain("programmatic system utility")
+      expect(tool.description).toContain("checkpoint")
+    })
+
+    it("should have required arguments", () => {
+      const tool = createCheckpointTool(mockCtx)
+      expect(tool.args).toHaveProperty("task_description")
+      expect(tool.args).toHaveProperty("verification_report")
+      expect(tool.args).toHaveProperty("coverage_command")
     })
   })
 

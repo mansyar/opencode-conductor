@@ -71,6 +71,24 @@ export const reviewCommand = createConductorCommand({
   },
 });
 
+export const checkpointCommand = (ctx: any) => {
+  return tool({
+    description: 'A programmatic system utility for Conductor to automate recording task completion via a checkpoint. It enforces quality gates (tests/coverage) and automates the Git commit/note lifecycle.',
+    args: {
+      task_description: tool.schema.string().describe('Brief description of the completed task'),
+      verification_report: tool.schema.string().describe('Detailed summary of the changes and verification steps'),
+      coverage_command: tool.schema.string().optional().describe('Optional override for the coverage command'),
+    },
+    async execute(args: any, context: any) {
+      // Logic will be implemented in the next task
+      return JSON.stringify({
+        status: 'success',
+        message: 'Checkpoint logic not yet implemented',
+      });
+    },
+  });
+};
+
 /**
  * Creates the Conductor Setup tool.
  * @param ctx The plugin input context.
@@ -123,4 +141,13 @@ export function createRevertTool(ctx: any): ToolDefinition {
  */
 export function createReviewTool(ctx: any): ToolDefinition {
   return reviewCommand(ctx);
+}
+
+/**
+ * Creates the Conductor Checkpoint tool.
+ * @param ctx The plugin input context.
+ * @returns The tool definition for task checkpointing.
+ */
+export function createCheckpointTool(ctx: any): ToolDefinition {
+  return checkpointCommand(ctx);
 }
