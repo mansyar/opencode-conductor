@@ -17,7 +17,6 @@ The philosophy is simple: **control your code by controlling your context.** By 
 *   **Smart Revert**: A Git-aware revert system that understands logical units of work (Tracks, Phases, Tasks) instead of just raw commit hashes.
 *   **19+ Style Templates**: Built-in support for a vast range of languages including Rust, Solidity, Zig, Julia, Kotlin, Swift, and more.
 *   **Zero-Config Bootstrap**: Automatically installs agents and commands to your global OpenCode configuration on first run.
-*   **Sisyphus Synergy**: Optimized to work alongside [OhMyOpenCode](https://github.com/code-yeongyu/oh-my-opencode) for a multi-agent team experience.
 *   **Agent Agnostic**: Commands can be invoked by any agent, giving you the freedom to choose your primary interface.
 
 ---
@@ -76,18 +75,6 @@ We highly recommend pinning the `@conductor` agent to a "flash" model for optima
 }
 ```
 
-### OhMyOpenCode Config
-**File:** `~/.config/opencode/oh-my-opencode.json`
-```json
-{
-  "agents": {
-    "conductor": {
-      "model": "google/gemini-3-flash"
-    }
-  }
-}
-```
-
 ---
 
 ## 📋 Commands Reference
@@ -118,16 +105,7 @@ Comprehensive documentation is available in the `conductor/documentation/` direc
 ### Guides
 - [Workflow Documentation](conductor/documentation/workflow_documentation.md) - Common workflows
 - [Error Handling](conductor/documentation/error_handling_documentation.md) - Troubleshooting guide
-- [Integration Guide](conductor/documentation/integration_documentation.md) - OhMyOpenCode integration
 - [Complete Documentation](conductor/documentation/complete_documentation.md) - All-in-one reference
-
----
-
-## 🤝 Synergy with OhMyOpenCode
-
-If you use the **OhMyOpenCode** suite, `@conductor` acts as your Technical Lead. While **Sisyphus** manages the general conversation and orchestration, he can delegate complex architectural planning and protocol enforcement to the `@conductor` agent. 
-
-Conductor includes built-in "Loop Protection" to ensure it never conflicts with OhMyOpenCode's continuation enforcers during interactive Q&A sessions.
 
 ---
 
