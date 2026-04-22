@@ -7,10 +7,10 @@
   - [x] Search codebase for imports of src/tools/delegate.ts
   - [x] Search codebase for imports of src/utils/bootstrap.ts
   - [x] Search codebase for imports of src/utils/stateManager.ts
-- [ ] Task: Identify all build scripts referencing legacy systems
-  - [ ] Search for references to legacy/ in build scripts
-  - [ ] Search for references to dist/prompts/commands/
-  - [ ] Search for TOML conversion scripts
+- [x] Task: Identify all build scripts referencing legacy systems
+  - [x] Search for references to legacy/ in build scripts
+  - [x] Search for references to dist/prompts/commands/
+  - [x] Search for TOML conversion scripts
 - [ ] Task: Verify postinstall.cjs usage
   - [ ] Read postinstall.cjs content
   - [ ] Check if it's referenced in package.json
