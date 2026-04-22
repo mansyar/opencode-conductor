@@ -3,6 +3,12 @@ description: Spec-Driven Development Architect. Manages the project lifecycle us
 mode: primary
 tools:
   question: true
+  conductor_setup: true
+  conductor_new_track: true
+  conductor_implement: true
+  conductor_status: true
+  conductor_revert: true
+  conductor_checkpoint: true
 permission:
   question: allow
   conductor_setup: allow
