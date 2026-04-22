@@ -7,6 +7,11 @@ import RevertPrompt from "./prompts/conductor/revert.json" with { type: "json" }
 import ReviewPrompt from "./prompts/conductor/review.json" with { type: "json" };
 import SetupPrompt from "./prompts/conductor/setup.json" with { type: "json" };
 import StatusPrompt from "./prompts/conductor/status.json" with { type: "json" };
+import { 
+  getFilesRecursively, 
+  formatFileHierarchy, 
+  isConductorSetup 
+} from "./utils/workspace.js";
 
 export const MyPlugin: Plugin = async ({
   project,
@@ -29,49 +34,14 @@ export const MyPlugin: Plugin = async ({
   const conductorPath = path.join(directory, "conductor");
   let files: string[] = [];
   let fileHeirarchy = "";
-  let llmFiles = "";
-
-  const getFilesRecursively = (dir: string): string[] => {
-    let results: string[] = [];
-    if (!fs.existsSync(dir)) return results;
-    const list = fs.readdirSync(dir);
-    list.forEach((file) => {
-      const filePath = path.join(dir, file);
-      const stat = fs.statSync(filePath);
-      if (stat && stat.isDirectory()) {
-        results = results.concat(getFilesRecursively(filePath));
-      } else {
-        if (filePath.endsWith(".json") || filePath.endsWith(".md")) {
-          results.push(filePath);
-        }
-      }
-    });
-    return results;
-  };
 
   if (fs.existsSync(conductorPath)) {
     files = getFilesRecursively(conductorPath);
-    fileHeirarchy = files
-      .map((f) => path.relative(directory, f))
-      .join("\n                    ");
-    
-    // Concat them nicely for the LLM using <> tags
-    llmFiles = files
-      .map((f) => {
-        const content = fs.readFileSync(f, "utf-8");
-        const relPath = path.relative(directory, f);
-        return `<${f} path="${relPath}">\n${content}\n</${f}>`;
-      })
-      .join("\n\n");
+    fileHeirarchy = formatFileHierarchy(files, directory);
   }
 
-  const isConductorSetup = () => {
-    const setupStatePath = path.join(conductorPath, "setup_state.json");
-    return fs.existsSync(setupStatePath);
-  };
-
-  // @note read setup json file and write a utility function which will determine if setup has occured within the project yet
-  const setupOccurred = isConductorSetup();
+  // @note determine if setup has occured within the project yet
+  const setupOccurred = isConductorSetup(conductorPath);
 
   return {
     config: async (_config) => {
