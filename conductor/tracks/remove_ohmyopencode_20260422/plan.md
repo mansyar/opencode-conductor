@@ -3,7 +3,7 @@
 ## Phase 1: Update Project Documentation
 - [x] Task: Remove OhMyOpenCode mentions from `README.md` ab2327e
     - [ ] Locate and remove all OhMyOpenCode sections and integrations.
-- [ ] Task: Remove OhMyOpenCode mentions from `INSTALL.md`
+- [x] Task: Remove OhMyOpenCode mentions from `INSTALL.md` 1aebf47
     - [ ] Remove configuration steps related to OhMyOpenCode.
 - [ ] Task: Update `conductor/product.md`
     - [ ] Remove OhMyOpenCode integration goals and features.
