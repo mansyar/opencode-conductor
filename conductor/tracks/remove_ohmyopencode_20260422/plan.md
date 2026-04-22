@@ -13,9 +13,9 @@
 - [x] Task: Conductor - User Manual Verification 'Phase 1: Update Project Documentation' (Protocol in workflow.md) ec0e820
 
 ## Phase 2: Update Configurations and Code
-- [ ] Task: Write Tests (Red Phase)
+- [x] Task: Write Tests (Red Phase) 71cc326
     - [ ] Verify existing test suite captures any configuration failures.
-- [ ] Task: Implement Code Changes (Green Phase)
+- [x] Task: Implement Code Changes (Green Phase) 71cc326
     - [ ] Audit `package.json`, `src/`, and `legacy/gemini-extension.json` for OhMyOpenCode specific configurations.
     - [ ] Remove OhMyOpenCode integration logic.
 - [ ] Task: Run full test suite and verify coverage
