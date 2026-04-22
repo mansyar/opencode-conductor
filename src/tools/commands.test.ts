@@ -103,22 +103,6 @@ describe("Command Tools", () => {
       const result = await tool.execute({ track_name: "auth-track" }, mockToolContext)
       expect(JSON.parse(result)).toEqual({ directives: "Track: auth-track" })
     })
-
-    it("should include strategy section in directives", async () => {
-        vi.mocked(readFile).mockImplementation(async (path) => {
-            if (typeof path === 'string' && path.endsWith("manual.md")) {
-                return "Manual Strategy"
-            }
-            return JSON.stringify({
-                description: "Implement",
-                prompt: "Strategy: {{strategy_section}}"
-            })
-        })
-
-        const tool = createImplementTool(mockCtx)
-        const result = await tool.execute({}, mockToolContext)
-        expect(JSON.parse(result)).toEqual({ directives: "Strategy: Manual Strategy" })
-    })
   })
 
   describe("createStatusTool", () => {

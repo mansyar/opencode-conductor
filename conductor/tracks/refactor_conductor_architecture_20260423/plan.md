@@ -1,10 +1,10 @@
 # Implementation Plan: Refactor Conductor Plugin Architecture
 
 ## Phase 1: Cleanup and Simplification
-- [ ] **Task: Remove Redundant Code**
-    - [ ] Delete `src/commands/implement.ts` and the `src/commands/` directory.
-- [ ] **Task: Simplify `implementCommand`**
-    - [ ] Update `src/tools/commands.ts` to remove `strategy_section` logic and file reading of `manual.md`.
+- [x] **Task: Remove Redundant Code**
+    - [x] Delete `src/commands/implement.ts` and the `src/commands/` directory.
+- [x] **Task: Simplify `implementCommand`**
+    - [x] Update `src/tools/commands.ts` to remove `strategy_section` logic and file reading of `manual.md`.
 
 ## Phase 2: Tool Alignment and Registration
 - [ ] **Task: Align Prompt Extensions**

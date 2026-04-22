@@ -33,20 +33,7 @@ export const implementCommand = createConductorCommand({
     track_name: tool.schema.string().optional().describe('Name or description of the track to implement'),
   },
   additionalContext: async (ctx, args) => {
-    // 1. Load manual strategy
-    const strategyFile = 'manual.md';
-    const strategyPath = join(__dirname, '../prompts/strategies', strategyFile);
-    
-    let strategySection = '';
-    try {
-      strategySection = await readFile(strategyPath, 'utf-8');
-    } catch (e) {
-      console.warn(`[Conductor] Failed to load strategy ${strategyFile}:`, e);
-      strategySection = 'Error: Could not load execution strategy.';
-    }
-
     return {
-      strategy_section: strategySection,
       track_name: args.track_name || '',
     };
   },
