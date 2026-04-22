@@ -13,7 +13,7 @@ Conductor is a specialized OpenCode plugin designed to enforce a rigorous, Conte
 2. **Manage Project Tracks**: Organize work into manageable units (features/bug fixes) with detailed specifications and implementation plans
 
 ## Key Features
-- **Slash Commands**: Native commands like `/conductor:setup`, `/conductor:newTrack`, `/conductor:implement`, `/conductor:review` for frictionless project management
+- **Agent Tools**: Native tools and slash commands (e.g., `/conductor:setup`, `/conductor:implement`) that allow agents to interact directly with the Conductor protocol.
 - **Track Management**: Create, plan, and implement tracks with automatic spec.md and plan.md generation
 - **Smart Revert System**: Git-aware revert that understands logical units of work (Tracks, Phases, Tasks) instead of just raw commit hashes
 - **19+ Style Templates**: Built-in support for a vast range of languages including Rust, Solidity, Zig, Julia, Kotlin, Swift, and more
