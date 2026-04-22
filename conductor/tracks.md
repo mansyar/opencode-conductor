@@ -4,5 +4,5 @@ This file tracks all major tracks for the project. Each track has its own detail
 
 ---
 
-- [~] **Track: Clean up legacy code, unused systems, and duplicate files**
+- [x] **Track: Clean up legacy code, unused systems, and duplicate files**
   *Link: [./tracks/cleanup_legacy_20260422/](./tracks/cleanup_legacy_20260422/)*
