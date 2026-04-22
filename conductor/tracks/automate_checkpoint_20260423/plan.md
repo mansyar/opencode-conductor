@@ -10,7 +10,7 @@
 
 ## Phase 2: Tool Implementation
 - [x] Task: Define `conductor_checkpoint` schema in `src/tools/commands.ts` 24efb34
-- [ ] Task: Implement `createCheckpointTool` logic
+- [x] Task: Implement `createCheckpointTool` logic 1d5a802
     - [ ] Integrate coverage validation
     - [ ] Integrate git commit/note logic
 - [ ] Task: Add unit tests for the checkpoint tool in `src/tools/commands.test.ts`
