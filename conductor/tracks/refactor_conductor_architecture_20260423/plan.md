@@ -7,11 +7,11 @@
     - [x] Update `src/tools/commands.ts` to remove `strategy_section` logic and file reading of `manual.md`.
 
 ## Phase 2: Tool Alignment and Registration
-- [x] **Task: Align Prompt Extensions**
+- [x] **Task: Align Prompt Extensions** f2c679b
     - [x] Update all command definitions in `src/tools/commands.ts` to use `.json` instead of `.toml`.
-- [~] **Task: Register Tools in Index**
-    - [ ] Update `src/index.ts` to import tool factories from `src/tools/commands.ts`.
-    - [ ] Update the `Plugin` return object in `src/index.ts` to include the `tool` property with registered Conductor tools.
+- [x] **Task: Register Tools in Index** f2c679b
+    - [x] Update `src/index.ts` to import tool factories from `src/tools/commands.ts`.
+    - [x] Update the `Plugin` return object in `src/index.ts` to include the `tool` property with registered Conductor tools.
 
 ## Phase 3: Verification
 - [ ] **Task: Run Existing Tests**
