@@ -45,7 +45,7 @@
 
 ## Phase 6: Update Build Scripts
 
-- [x] Task: Update identified build scripts
+- [x] Task: Update identified build scripts [543f56f]
   - [x] Remove legacy conversion steps
   - [x] Verify build still works
 
