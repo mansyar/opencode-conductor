@@ -31,13 +31,11 @@ describe("Command Tools", () => {
       messageID: "test-message",
     }
 
-    // Default mocks - must use triple quotes for the regex in commandFactory
-    vi.mocked(readFile).mockResolvedValue(`
-description = "Test command"
-prompt = """
-Test prompt content
-"""
-`)
+    // Default mocks - using JSON format
+    vi.mocked(readFile).mockResolvedValue(JSON.stringify({
+      description: "Test command",
+      prompt: "Test prompt content"
+    }))
   })
 
   describe("createSetupTool", () => {
@@ -49,10 +47,10 @@ Test prompt content
     })
 
     it("should return directives JSON string when executed", async () => {
-      vi.mocked(readFile).mockResolvedValue(`
-description = "Setup"
-prompt = """Setup Prompt"""
-`)
+      vi.mocked(readFile).mockResolvedValue(JSON.stringify({
+        description: "Setup",
+        prompt: "Setup Prompt"
+      }))
       const tool = createSetupTool(mockCtx)
       const result = await tool.execute({}, mockToolContext)
       expect(JSON.parse(result)).toEqual({ directives: "Setup Prompt" })
@@ -73,10 +71,10 @@ prompt = """Setup Prompt"""
     })
 
     it("should replace description in directives", async () => {
-      vi.mocked(readFile).mockResolvedValue(`
-description = "New Track"
-prompt = """Track description: {{args}}"""
-`)
+      vi.mocked(readFile).mockResolvedValue(JSON.stringify({
+        description: "New Track",
+        prompt: "Track description: {{args}}"
+      }))
       const tool = createNewTrackTool(mockCtx)
       const result = await tool.execute({ description: "Login feature" }, mockToolContext)
       expect(JSON.parse(result)).toEqual({ directives: "Track description: Login feature" })
@@ -97,29 +95,29 @@ prompt = """Track description: {{args}}"""
     })
 
     it("should replace track_name in directives", async () => {
-      vi.mocked(readFile).mockResolvedValue(`
-description = "Implement"
-prompt = """Track: {{track_name}}"""
-`)
+      vi.mocked(readFile).mockResolvedValue(JSON.stringify({
+        description: "Implement",
+        prompt: "Track: {{track_name}}"
+      }))
       const tool = createImplementTool(mockCtx)
       const result = await tool.execute({ track_name: "auth-track" }, mockToolContext)
       expect(JSON.parse(result)).toEqual({ directives: "Track: auth-track" })
     })
 
     it("should include strategy section in directives", async () => {
-       vi.mocked(readFile).mockImplementation(async (path) => {
-           if (typeof path === 'string' && path.endsWith("manual.md")) {
-               return "Manual Strategy"
-           }
-           return `
-description = "Implement"
-prompt = """Strategy: {{strategy_section}}"""
-`
-       })
+        vi.mocked(readFile).mockImplementation(async (path) => {
+            if (typeof path === 'string' && path.endsWith("manual.md")) {
+                return "Manual Strategy"
+            }
+            return JSON.stringify({
+                description: "Implement",
+                prompt: "Strategy: {{strategy_section}}"
+            })
+        })
 
-       const tool = createImplementTool(mockCtx)
-       const result = await tool.execute({}, mockToolContext)
-       expect(JSON.parse(result)).toEqual({ directives: "Strategy: Manual Strategy" })
+        const tool = createImplementTool(mockCtx)
+        const result = await tool.execute({}, mockToolContext)
+        expect(JSON.parse(result)).toEqual({ directives: "Strategy: Manual Strategy" })
     })
   })
 
@@ -132,10 +130,10 @@ prompt = """Strategy: {{strategy_section}}"""
       })
 
     it("should execute and return directives", async () => {
-      vi.mocked(readFile).mockResolvedValue(`
-description = "Status"
-prompt = """Status Prompt"""
-`)
+      vi.mocked(readFile).mockResolvedValue(JSON.stringify({
+        description: "Status",
+        prompt: "Status Prompt"
+      }))
       const tool = createStatusTool(mockCtx)
       const result = await tool.execute({}, mockToolContext)
       expect(JSON.parse(result)).toEqual({ directives: "Status Prompt" })
@@ -151,10 +149,10 @@ prompt = """Status Prompt"""
       })
 
     it("should replace target in directives", async () => {
-      vi.mocked(readFile).mockResolvedValue(`
-description = "Revert"
-prompt = """Target: {{target}}"""
-`)
+      vi.mocked(readFile).mockResolvedValue(JSON.stringify({
+        description: "Revert",
+        prompt: "Target: {{target}}"
+      }))
       const tool = createRevertTool(mockCtx)
       const result = await tool.execute({ target: "track 1" }, mockToolContext)
       expect(JSON.parse(result)).toEqual({ directives: "Target: track 1" })
@@ -172,10 +170,10 @@ prompt = """Target: {{target}}"""
 
   describe("Prompt Replacement", () => {
     it("should replace standard variables in directives", async () => {
-      vi.mocked(readFile).mockResolvedValue(`
-description = "Test"
-prompt = """Templates: {{templatesDir}}"""
-`)
+      vi.mocked(readFile).mockResolvedValue(JSON.stringify({
+        description: "Test",
+        prompt: "Templates: {{templatesDir}}"
+      }))
       const tool = createNewTrackTool(mockCtx)
       const result = await tool.execute({}, mockToolContext)
       
