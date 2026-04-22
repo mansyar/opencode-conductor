@@ -38,10 +38,10 @@
 
 ## Phase 5: Remove Orphan Utility Files
 
-- [x] Task: Remove src/tools/background.ts
-- [x] Task: Remove src/tools/delegate.ts
-- [x] Task: Remove src/utils/bootstrap.ts
-- [x] Task: Remove src/utils/stateManager.ts
+- [x] Task: Remove src/tools/background.ts [7d65639]
+- [x] Task: Remove src/tools/delegate.ts [7d65639]
+- [x] Task: Remove src/utils/bootstrap.ts [7d65639]
+- [x] Task: Remove src/utils/stateManager.ts [7d65639]
 
 ## Phase 6: Update Build Scripts
 
