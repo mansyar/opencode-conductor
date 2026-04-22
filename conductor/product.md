@@ -15,6 +15,7 @@ Conductor is a specialized OpenCode plugin designed to enforce a rigorous, Conte
 ## Key Features
 - **Agent Tools**: Native tools and slash commands (e.g., `/conductor:setup`, `/conductor:implement`) that allow agents to interact directly with the Conductor protocol.
 - **Track Management**: Create, plan, and implement tracks with automatic spec.md and plan.md generation
+- **Automated Checkpointing**: Programmatic quality gates that enforce test coverage (>80%) and automate Git commits with attached verification reports via Git Notes.
 - **Smart Revert System**: Git-aware revert that understands logical units of work (Tracks, Phases, Tasks) instead of just raw commit hashes
 - **19+ Style Templates**: Built-in support for a vast range of languages including Rust, Solidity, Zig, Julia, Kotlin, Swift, and more
 

@@ -19,3 +19,4 @@
 - **TypeScript**: Type-safe JavaScript development
 - **Vitest**: Fast unit testing framework
 - **semantic-release**: Automated semantic versioning
+- **Git Notes**: For attaching auditable verification reports to commits
