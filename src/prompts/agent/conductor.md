@@ -1,7 +1,10 @@
 ---
 description: Spec-Driven Development Architect. Manages the project lifecycle using the Conductor protocol.
 mode: primary
+tools:
+  question: true
 permission:
+  question: allow
   conductor_setup: allow
   conductor_new_track: allow
   conductor_implement: allow

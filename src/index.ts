@@ -15,6 +15,16 @@ export const MyPlugin: Plugin = async ({
   directory,
   worktree,
 }) => {
+  // 1. Read the agent prompt
+  const agentPromptPath = path.join(import.meta.dirname, "prompts", "agent", "conductor.md");
+  let agentPrompt = "";
+  try {
+    agentPrompt = fs.readFileSync(agentPromptPath, "utf-8");
+  } catch (e) {
+    console.error("[Conductor] Failed to read agent prompt");
+    agentPrompt = "Specialized agent for Conductor spec-driven development.";
+  }
+
   // List all files and folders which are in conductor subfolder (.json and .md files only)
   const conductorPath = path.join(directory, "conductor");
   let files: string[] = [];
@@ -65,9 +75,25 @@ export const MyPlugin: Plugin = async ({
 
   return {
     config: async (_config) => {
+      // Register the Conductor Agent
+      _config.agent = _config.agent || {};
+      _config.agent["conductor"] = {
+        description: "Spec-Driven Development Architect. Manages the project lifecycle using the Conductor protocol.",
+        prompt: agentPrompt,
+        tools: {
+          conductor_setup: true,
+          conductor_new_track: true,
+          conductor_implement: true,
+          conductor_status: true,
+          conductor_revert: true,
+          conductor_review: true,
+        },
+      };
+
       _config.command = {
         ..._config.command,
         "conductor:implement": {
+          agent: "conductor",
           template: ImplementPrompt.prompt + `
             Environment Details: 
               - Directory: ${directory}
@@ -79,14 +105,17 @@ export const MyPlugin: Plugin = async ({
           description: ImplementPrompt.description,
         },
         "conductor:newTrack": {
+          agent: "conductor",
           template: NewTrackPrompt.prompt,
           description: NewTrackPrompt.description,
         },
         "conductor:revert": {
+          agent: "conductor",
           template: RevertPrompt.prompt,
           description: RevertPrompt.description,
         },
         "conductor:review": {
+          agent: "conductor",
           template: ReviewPrompt.prompt + `
             Environment Details: 
               - Directory: ${directory}
@@ -98,6 +127,7 @@ export const MyPlugin: Plugin = async ({
           description: ReviewPrompt.description,
         },
         "conductor:setup": {
+          agent: "conductor",
           template: SetupPrompt.prompt + `
             Environment Details: 
               - Directory: ${directory}
@@ -111,6 +141,7 @@ export const MyPlugin: Plugin = async ({
           description: SetupPrompt.description,
         },
         "conductor:status": {
+          agent: "conductor",
           template: StatusPrompt.prompt + `
 
           
