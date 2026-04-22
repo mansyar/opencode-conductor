@@ -15,7 +15,7 @@
   - [x] Read postinstall.cjs content
   - [x] Check if it's referenced in package.json
 
-## Phase 2: Remove Legacy Conductor Directory
+## Phase 2: Remove Legacy Conductor Directory [checkpoint: ddcfbac]
 
 - [x] Task: Delete legacy/conductor/ directory [4374657]
   - [x] Verify directory exists
