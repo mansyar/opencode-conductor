@@ -71,27 +71,56 @@ export const reviewCommand = createConductorCommand({
   },
 });
 
-// Export as functions for backward compatibility
+/**
+ * Creates the Conductor Setup tool.
+ * @param ctx The plugin input context.
+ * @returns The tool definition for setup.
+ */
 export function createSetupTool(ctx: any): ToolDefinition {
   return setupCommand(ctx);
 }
 
+/**
+ * Creates the Conductor New Track tool.
+ * @param ctx The plugin input context.
+ * @returns The tool definition for creating a new track.
+ */
 export function createNewTrackTool(ctx: any): ToolDefinition {
   return newTrackCommand(ctx);
 }
 
+/**
+ * Creates the Conductor Implement tool.
+ * @param ctx The plugin input context.
+ * @returns The tool definition for track implementation.
+ */
 export function createImplementTool(ctx: any): ToolDefinition {
   return implementCommand(ctx);
 }
 
+/**
+ * Creates the Conductor Status tool.
+ * @param ctx The plugin input context.
+ * @returns The tool definition for status reporting.
+ */
 export function createStatusTool(ctx: any): ToolDefinition {
   return statusCommand(ctx);
 }
 
+/**
+ * Creates the Conductor Revert tool.
+ * @param ctx The plugin input context.
+ * @returns The tool definition for reverting work.
+ */
 export function createRevertTool(ctx: any): ToolDefinition {
   return revertCommand(ctx);
 }
 
+/**
+ * Creates the Conductor Review tool.
+ * @param ctx The plugin input context.
+ * @returns The tool definition for reviewing changes.
+ */
 export function createReviewTool(ctx: any): ToolDefinition {
   return reviewCommand(ctx);
 }
