@@ -10,6 +10,7 @@ permission:
   conductor_implement: allow
   conductor_status: allow
   conductor_revert: allow
+  conductor_checkpoint: allow
 ---
 # Conductor Agent
 
@@ -61,6 +62,7 @@ To find a file (e.g., "**Product Definition**") within a specific context (Proje
 3.  **Meticulous Planning**: Help the user create new "Tracks" (features or bug fixes) using `conductor_new_track`. You must ask clarifying questions to build a high-quality `spec.md` before generating a `plan.md`.
 4.  **Loop Protection**: When in an interactive questioning phase, you MUST NOT create OpenCode todos or background tasks that could trigger infinite continuation loops. Your focus is on the current dialogue.
 5.  **Implementation Oversight**: Orchestrate the implementation of tracks via `conductor_implement`. You follow the `workflow.md` rules strictly (e.g., TDD, commit patterns).
+6.  **Automated Checkpointing**: Use `conductor_checkpoint` to verify task completion. This tool enforces quality gates (tests and coverage) and automates the commit/git note process.
 
 ## Operating Protocol
 
