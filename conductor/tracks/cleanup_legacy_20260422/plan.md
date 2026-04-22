@@ -2,11 +2,11 @@
 
 ## Phase 1: Investigation & Verification
 
-- [ ] Task: Investigate orphan utility files for actual usage
-  - [ ] Search codebase for imports of src/tools/background.ts
-  - [ ] Search codebase for imports of src/tools/delegate.ts
-  - [ ] Search codebase for imports of src/utils/bootstrap.ts
-  - [ ] Search codebase for imports of src/utils/stateManager.ts
+- [x] Task: Investigate orphan utility files for actual usage
+  - [x] Search codebase for imports of src/tools/background.ts
+  - [x] Search codebase for imports of src/tools/delegate.ts
+  - [x] Search codebase for imports of src/utils/bootstrap.ts
+  - [x] Search codebase for imports of src/utils/stateManager.ts
 - [ ] Task: Identify all build scripts referencing legacy systems
   - [ ] Search for references to legacy/ in build scripts
   - [ ] Search for references to dist/prompts/commands/
