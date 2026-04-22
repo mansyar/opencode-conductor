@@ -11,7 +11,7 @@
   - [x] Search for references to legacy/ in build scripts
   - [x] Search for references to dist/prompts/commands/
   - [x] Search for TOML conversion scripts
-- [x] Task: Verify postinstall.cjs usage
+- [x] Task: Verify postinstall.cjs usage [8a42889]
   - [x] Read postinstall.cjs content
   - [x] Check if it's referenced in package.json
 
