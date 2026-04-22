@@ -3,6 +3,9 @@ import { createConductorCommand } from '../utils/commandFactory.js';
 import { join, dirname } from 'path';
 import { fileURLToPath } from 'url';
 import { readFile } from 'fs/promises';
+import { discoverCoverageCommand, parseCoverageOutput } from '../utils/coverage.js';
+import { commitWithNote } from '../utils/git.js';
+import { execSync } from 'child_process';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
@@ -80,11 +83,53 @@ export const checkpointCommand = (ctx: any) => {
       coverage_command: tool.schema.string().optional().describe('Optional override for the coverage command'),
     },
     async execute(args: any, context: any) {
-      // Logic will be implemented in the next task
-      return JSON.stringify({
-        status: 'success',
-        message: 'Checkpoint logic not yet implemented',
-      });
+      try {
+        const projectRoot = ctx.directory;
+        
+        // 1. Discover Coverage Command
+        const coverageCommand = args.coverage_command || discoverCoverageCommand(projectRoot);
+        
+        // 2. Execute Coverage
+        let output: string;
+        try {
+          output = execSync(coverageCommand, { cwd: projectRoot }).toString();
+        } catch (e: any) {
+          return JSON.stringify({
+            status: 'error',
+            message: `Tests failed or coverage command errored: ${e.message}`,
+            output: e.stdout?.toString() || e.stderr?.toString() || ''
+          });
+        }
+
+        // 3. Parse Results
+        const coverage = parseCoverageOutput(output);
+
+        // 4. Enforce Gate
+        if (coverage < 80) {
+          return JSON.stringify({
+            status: 'error',
+            message: `Coverage too low (${coverage}%). Target is >80%.`,
+            output
+          });
+        }
+
+        // 5. Auto-Commit & Attach Git Note
+        const commitSha = commitWithNote({
+          message: args.task_description,
+          note: args.verification_report
+        });
+
+        return JSON.stringify({
+          status: 'success',
+          commit_sha: commitSha,
+          coverage: coverage
+        });
+      } catch (error: any) {
+        return JSON.stringify({
+          status: 'error',
+          message: `Checkpoint failed: ${error.message}`
+        });
+      }
     },
   });
 };

@@ -9,11 +9,18 @@ import {
   createCheckpointTool,
 } from "./commands.js"
 import { readFile } from "fs/promises"
+import * as coverageUtils from "../utils/coverage.js"
+import * as gitUtils from "../utils/git.js"
+import { execSync } from "child_process"
 
 // Mock fs/promises
 vi.mock("fs/promises", () => ({
   readFile: vi.fn(),
 }))
+
+vi.mock("../utils/coverage.js")
+vi.mock("../utils/git.js")
+vi.mock("child_process")
 
 describe("Command Tools", () => {
   let mockCtx: PluginInput
@@ -156,6 +163,40 @@ describe("Command Tools", () => {
       expect(tool.args).toHaveProperty("task_description")
       expect(tool.args).toHaveProperty("verification_report")
       expect(tool.args).toHaveProperty("coverage_command")
+    })
+
+    it("should execute successfully if coverage is high enough", async () => {
+      vi.mocked(coverageUtils.discoverCoverageCommand).mockReturnValue("npm test -- --coverage")
+      vi.mocked(execSync).mockReturnValue(Buffer.from("All files | 85.00 | ..."))
+      vi.mocked(coverageUtils.parseCoverageOutput).mockReturnValue(85.00)
+      vi.mocked(gitUtils.commitWithNote).mockReturnValue("mock_sha")
+
+      const tool = createCheckpointTool(mockCtx)
+      const result = await tool.execute({
+        task_description: "Done",
+        verification_report: "Report"
+      }, mockToolContext)
+
+      expect(JSON.parse(result)).toEqual({
+        status: "success",
+        commit_sha: "mock_sha",
+        coverage: 85.00
+      })
+    })
+
+    it("should fail if coverage is too low", async () => {
+      vi.mocked(coverageUtils.discoverCoverageCommand).mockReturnValue("npm test -- --coverage")
+      vi.mocked(execSync).mockReturnValue(Buffer.from("All files | 75.00 | ..."))
+      vi.mocked(coverageUtils.parseCoverageOutput).mockReturnValue(75.00)
+
+      const tool = createCheckpointTool(mockCtx)
+      const result = await tool.execute({
+        task_description: "Done",
+        verification_report: "Report"
+      }, mockToolContext)
+
+      expect(JSON.parse(result).status).toBe("error")
+      expect(JSON.parse(result).message).toContain("Coverage too low (75%)")
     })
   })
 
