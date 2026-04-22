@@ -11,9 +11,9 @@
   - [x] Search for references to legacy/ in build scripts
   - [x] Search for references to dist/prompts/commands/
   - [x] Search for TOML conversion scripts
-- [ ] Task: Verify postinstall.cjs usage
-  - [ ] Read postinstall.cjs content
-  - [ ] Check if it's referenced in package.json
+- [x] Task: Verify postinstall.cjs usage
+  - [x] Read postinstall.cjs content
+  - [x] Check if it's referenced in package.json
 
 ## Phase 2: Remove Legacy Conductor Directory
 
