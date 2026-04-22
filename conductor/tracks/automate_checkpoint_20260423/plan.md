@@ -16,7 +16,7 @@
 - [x] Task: Add unit tests for the checkpoint tool in `src/tools/commands.test.ts` 1ee8dfb
 - [x] Task: Conductor - User Manual Verification 'Tool Implementation' (Protocol in workflow.md) 8cdff17
 
-## Phase 3: Integration & Testing
+## Phase 3: Integration & Testing [checkpoint: 15dfede]
 - [x] Task: Update `src/index.ts` to register the new tool d22e8e5
-- [ ] Task: Verify end-to-end flow with a dummy task
-- [ ] Task: Conductor - User Manual Verification 'Integration' (Protocol in workflow.md)
+- [x] Task: Verify end-to-end flow with a dummy task 724b70b
+- [x] Task: Conductor - User Manual Verification 'Integration' (Protocol in workflow.md) 15dfede
