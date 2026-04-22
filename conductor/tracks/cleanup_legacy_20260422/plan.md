@@ -45,9 +45,9 @@
 
 ## Phase 6: Update Build Scripts
 
-- [ ] Task: Update identified build scripts
-  - [ ] Remove legacy conversion steps
-  - [ ] Verify build still works
+- [x] Task: Update identified build scripts
+  - [x] Remove legacy conversion steps
+  - [x] Verify build still works
 
 ## Phase 7: Verification & Checkpoint
 

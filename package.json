@@ -31,8 +31,8 @@
   "scripts": {
     "test": "vitest run",
 
-    "build": "rm -rf dist && npm run convert-legacy && tsc && npm run copy-assets",
-    "convert-legacy": "node scripts/convert-legacy.cjs",
+    "build": "rm -rf dist && tsc && npm run copy-assets",
+
     "copy-assets": "mkdir -p dist/templates && cp -r src/templates/* dist/templates/ && mkdir -p dist/prompts && cp -r src/prompts/* dist/prompts/",
     "prepublishOnly": "npm run build"
   },
