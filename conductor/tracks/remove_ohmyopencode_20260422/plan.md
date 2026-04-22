@@ -1,7 +1,7 @@
 # Implementation Plan: Remove OhMyOpenCode Compatibility
 
 ## Phase 1: Update Project Documentation
-- [ ] Task: Remove OhMyOpenCode mentions from `README.md`
+- [x] Task: Remove OhMyOpenCode mentions from `README.md` ab2327e
     - [ ] Locate and remove all OhMyOpenCode sections and integrations.
 - [ ] Task: Remove OhMyOpenCode mentions from `INSTALL.md`
     - [ ] Remove configuration steps related to OhMyOpenCode.
