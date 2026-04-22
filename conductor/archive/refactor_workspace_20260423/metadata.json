@@ -1,0 +1,8 @@
+{
+  "track_id": "refactor_workspace_20260423",
+  "type": "chore",
+  "status": "new",
+  "created_at": "2026-04-23T00:00:00Z",
+  "updated_at": "2026-04-23T00:00:00Z",
+  "description": "Refactor the file system logic, context formatting, and setup_state.json checking into a dedicated src/utils/workspace.ts module."
+}
