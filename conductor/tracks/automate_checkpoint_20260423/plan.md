@@ -1,7 +1,7 @@
 # Implementation Plan: Automate Git Notes & Protocol Enforcement
 
 ## Phase 1: Infrastructure & Discovery
-- [ ] Task: Create `src/utils/coverage.ts` to handle coverage command discovery and parsing
+- [x] Task: Create `src/utils/coverage.ts` to handle coverage command discovery and parsing d812eae
     - [ ] Implement logic to detect coverage scripts in `package.json`
     - [ ] Implement parser for common coverage outputs (Vitest/LCOV)
 - [ ] Task: Create `src/utils/git.ts` utilities for programmatic commits and notes
