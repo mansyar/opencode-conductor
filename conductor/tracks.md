@@ -4,4 +4,5 @@ This file tracks all major tracks for the project. Each track has its own detail
 
 ---
 
----
+- [ ] **Track: Automate Git Notes & Protocol Enforcement**
+*Link: [./tracks/automate_checkpoint_20260423/](./tracks/automate_checkpoint_20260423/)*
