@@ -43,18 +43,6 @@ By default, the `@conductor` agent uses your session's default model. We **highl
 }
 ```
 
-#### OhMyOpenCode Config
-**File:** `~/.config/opencode/oh-my-opencode.json`
-```json
-{
-  "agents": {
-    "conductor": {
-      "model": "google/gemini-3-flash"
-    }
-  }
-}
-```
-
 ---
 
 ## 🏗️ Development & Manual Install
