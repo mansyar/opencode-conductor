@@ -6,9 +6,8 @@
 2. [Command Reference](#command-reference)
 3. [Common Workflows](#common-workflows)
 4. [Error Handling](#error-handling)
-5. [Integration Guide](#integration-guide)
-6. [Best Practices](#best-practices)
-7. [Quick Reference](#quick-reference)
+5. [Best Practices](#best-practices)
+6. [Quick Reference](#quick-reference)
 
 ---
 
@@ -20,7 +19,7 @@ The Conductor plugin is a specialized OpenCode plugin designed to enforce a rigo
 - **Slash Commands**: Native commands for frictionless project management
 - **Track Management**: Create, plan, and implement tracks with automatic spec and plan generation
 - **Smart Revert System**: Git-aware revert that understands logical units of work
-- **Multi-Agent Support**: Works seamlessly with OhMyOpenCode for team collaboration
+- **Agent Agnostic**: Commands can be invoked by any agent, giving you the freedom to choose your primary interface
 
 ---
 
@@ -196,21 +195,6 @@ Interactively selects a task, phase, or track to undo via Git.
 
 ---
 
-## Integration Guide
-
-### OhMyOpenCode Integration
-1. Install OhMyOpenCode using your preferred package manager
-2. Install the Conductor plugin in your OpenCode configuration
-3. Configure multi-agent setup with clear roles
-4. Test integration by running a simple command
-
-### Multi-Agent Workflow Examples
-- **Feature Development**: Conductor creates track, assigns tasks to frontend/backend agents
-- **Bug Fix**: Conductor creates track, assigns fix to frontend, tester verifies
-- **Documentation**: Conductor creates track, assigns documentation to documenter
-
----
-
 ## Best Practices
 
 ### Track Creation
@@ -268,7 +252,6 @@ Interactively selects a task, phase, or track to undo via Git.
 - `revert_command_documentation.md` - Detailed `/conductor:revert` documentation
 - `workflow_documentation.md` - Common workflows guide
 - `error_handling_documentation.md` - Error handling guide
-- `integration_documentation.md` - OhMyOpenCode integration guide
 
 ### Project Files
 - `conductor/product.md` - Product definition

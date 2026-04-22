@@ -127,44 +127,32 @@
 - **Error**: "Coverage requirements not met"
   - **Solution**: Add more tests to meet coverage requirements
 
-## 5. Integration Guide
+## 5. Best Practices
 
-### 5.1 OhMyOpenCode Integration
-- Setting up Conductor with OhMyOpenCode
-- Multi-agent workflow examples
-- Configuration options
-
-### 5.2 Multi-Agent Workflow
-- How to work with multiple agents
-- Delegating tasks to specialized agents
-- Coordinating work across agents
-
-## 6. Best Practices
-
-### 6.1 Track Creation
+### 5.1 Track Creation
 - Use clear, descriptive track names
 - Break large features into smaller tracks
 - Include acceptance criteria in specifications
 
-### 6.2 Implementation
+### 5.2 Implementation
 - Follow Test-Driven Development (TDD)
 - Maintain high code coverage (>80%)
 - Write clear commit messages
 
-### 6.3 Documentation
+### 5.3 Documentation
 - Keep documentation up-to-date
 - Use consistent terminology
 - Include examples and usage patterns
 
-## 7. Appendix
+## 6. Appendix
 
-### 7.1 Glossary
+### 6.1 Glossary
 - Track: A unit of work (feature, bug fix, chore)
 - Phase: A stage in the workflow (Research, Implementation, etc.)
 - Spec: Specification document for a track
 - Plan: Implementation plan for a track
 
-### 7.2 Command Quick Reference
+### 6.2 Command Quick Reference
 - `/conductor:setup` - Initialize project
 - `/conductor:newTrack "desc"` - Create new track
 - `/conductor:implement` - Start implementation
@@ -172,7 +160,7 @@
 - `/conductor:status` - Check project status
 - `/conductor:revert` - Revert changes
 
-### 7.3 Resources
+### 6.3 Resources
 - Project repository
 - Issue tracker
 - Community support
