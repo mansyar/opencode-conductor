@@ -20,9 +20,9 @@
 - [x] Task: Implement setup state checking logic (Green Phase) (36e6f6b)
     - [x] Implement `setup_state.json` checking logic in `src/utils/workspace.ts`.
     - [x] Ensure unit tests for state checking logic pass.
-- [ ] Task: Refactor `src/index.ts`
-    - [ ] Remove `getFilesRecursively`, LLM context formatting, and `setup_state.json` checking from `src/index.ts`.
-    - [ ] Import and use the new utilities from `src/utils/workspace.ts` in `src/index.ts`.
+- [x] Task: Refactor `src/index.ts` (0b61416)
+    - [x] Remove `getFilesRecursively`, LLM context formatting, and `setup_state.json` checking from `src/index.ts`.
+    - [x] Import and use the new utilities from `src/utils/workspace.ts` in `src/index.ts`.
 - [ ] Task: Conductor - User Manual Verification 'Phase 2: Implementation' (Protocol in workflow.md)
 
 ## Phase 3: Final Review and Integration
