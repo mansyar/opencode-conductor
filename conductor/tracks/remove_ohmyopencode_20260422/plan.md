@@ -5,7 +5,7 @@
     - [ ] Locate and remove all OhMyOpenCode sections and integrations.
 - [x] Task: Remove OhMyOpenCode mentions from `INSTALL.md` 1aebf47
     - [ ] Remove configuration steps related to OhMyOpenCode.
-- [ ] Task: Update `conductor/product.md`
+- [x] Task: Update `conductor/product.md` e003bbe
     - [ ] Remove OhMyOpenCode integration goals and features.
 - [ ] Task: Clean up `conductor/documentation/` and `conductor/archive/`
     - [ ] Remove or update `integration_documentation.md`, `documentation_outline.md`, and `complete_documentation.md`.
