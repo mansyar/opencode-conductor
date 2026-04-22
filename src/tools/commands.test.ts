@@ -198,6 +198,22 @@ describe("Command Tools", () => {
       expect(JSON.parse(result).status).toBe("error")
       expect(JSON.parse(result).message).toContain("Coverage too low (75%)")
     })
+
+    it("should fail if tests fail or command errors", async () => {
+      vi.mocked(coverageUtils.discoverCoverageCommand).mockReturnValue("npm test -- --coverage")
+      vi.mocked(execSync).mockImplementation(() => {
+        throw new Error("Command failed")
+      })
+
+      const tool = createCheckpointTool(mockCtx)
+      const result = await tool.execute({
+        task_description: "Done",
+        verification_report: "Report"
+      }, mockToolContext)
+
+      expect(JSON.parse(result).status).toBe("error")
+      expect(JSON.parse(result).message).toContain("Tests failed or coverage command errored")
+    })
   })
 
   describe("Error Handling", () => {
