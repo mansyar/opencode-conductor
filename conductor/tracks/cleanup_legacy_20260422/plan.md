@@ -22,7 +22,7 @@
   - [x] Delete all contents
   - [x] Verify deletion
 
-## Phase 3: Remove/Update Postinstall Script
+## Phase 3: Remove/Update Postinstall Script [checkpoint: 6f2ff16]
 
 - [x] Task: Determine postinstall.cjs action (remove or update)
 - [x] Task: Execute postinstall.cjs change [7b834cd]
