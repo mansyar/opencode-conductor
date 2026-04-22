@@ -7,7 +7,7 @@
     - [ ] Remove configuration steps related to OhMyOpenCode.
 - [x] Task: Update `conductor/product.md` e003bbe
     - [ ] Remove OhMyOpenCode integration goals and features.
-- [ ] Task: Clean up `conductor/documentation/` and `conductor/archive/`
+- [x] Task: Clean up `conductor/documentation/` and `conductor/archive/` 64ad9e4
     - [ ] Remove or update `integration_documentation.md`, `documentation_outline.md`, and `complete_documentation.md`.
     - [ ] Update validation scripts (e.g., `test_integration_documentation.py`) if applicable.
 - [ ] Task: Conductor - User Manual Verification 'Phase 1: Update Project Documentation' (Protocol in workflow.md)
