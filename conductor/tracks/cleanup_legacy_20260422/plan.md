@@ -32,7 +32,7 @@
 ## Phase 4: Update Legacy Path References
 
 - [x] Task: Read and analyze src/utils/commandFactory.ts
-- [x] Task: Update legacy path references
+- [x] Task: Update legacy path references [56933d0]
   - [x] Remove or redirect legacy path references
   - [x] Verify file still compiles
 
