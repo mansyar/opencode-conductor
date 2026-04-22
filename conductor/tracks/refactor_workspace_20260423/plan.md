@@ -1,6 +1,6 @@
 # Implementation Plan: Refactor src/index.ts
 
-## Phase 1: Setup and Test Strategy
+## Phase 1: Setup and Test Strategy [checkpoint: 2db7013]
 - [x] Task: Setup new module and test suite (36e6f6b)
     - [x] Create `src/utils/workspace.ts` module.
     - [x] Create `src/utils/workspace.test.ts` test file.
@@ -8,7 +8,7 @@
     - [x] Write unit test for `getFilesRecursively` logic.
     - [x] Write unit test for LLM context formatting logic.
     - [x] Write unit test for `setup_state.json` checking logic.
-- [ ] Task: Conductor - User Manual Verification 'Phase 1: Setup and Test Strategy' (Protocol in workflow.md)
+- [x] Task: Conductor - User Manual Verification 'Phase 1: Setup and Test Strategy' (Protocol in workflow.md) (2db7013)
 
 ## Phase 2: Implementation
 - [ ] Task: Implement file system logic (Green Phase)
