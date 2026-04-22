@@ -11,15 +11,15 @@
 - [x] Task: Conductor - User Manual Verification 'Phase 1: Setup and Test Strategy' (Protocol in workflow.md) (2db7013)
 
 ## Phase 2: Implementation
-- [ ] Task: Implement file system logic (Green Phase)
-    - [ ] Implement `getFilesRecursively` and related logic in `src/utils/workspace.ts`.
-    - [ ] Ensure unit tests for file system logic pass.
-- [ ] Task: Implement LLM context formatting logic (Green Phase)
-    - [ ] Implement LLM context formatting logic in `src/utils/workspace.ts`.
-    - [ ] Ensure unit tests for context logic pass.
-- [ ] Task: Implement setup state checking logic (Green Phase)
-    - [ ] Implement `setup_state.json` checking logic in `src/utils/workspace.ts`.
-    - [ ] Ensure unit tests for state checking logic pass.
+- [x] Task: Implement file system logic (Green Phase) (36e6f6b)
+    - [x] Implement `getFilesRecursively` and related logic in `src/utils/workspace.ts`.
+    - [x] Ensure unit tests for file system logic pass.
+- [x] Task: Implement LLM context formatting logic (Green Phase) (36e6f6b)
+    - [x] Implement LLM context formatting logic in `src/utils/workspace.ts`.
+    - [x] Ensure unit tests for context logic pass.
+- [x] Task: Implement setup state checking logic (Green Phase) (36e6f6b)
+    - [x] Implement `setup_state.json` checking logic in `src/utils/workspace.ts`.
+    - [x] Ensure unit tests for state checking logic pass.
 - [ ] Task: Refactor `src/index.ts`
     - [ ] Remove `getFilesRecursively`, LLM context formatting, and `setup_state.json` checking from `src/index.ts`.
     - [ ] Import and use the new utilities from `src/utils/workspace.ts` in `src/index.ts`.
