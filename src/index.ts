@@ -12,6 +12,14 @@ import {
   formatFileHierarchy, 
   isConductorSetup 
 } from "./utils/workspace.js";
+import {
+  createSetupTool,
+  createNewTrackTool,
+  createImplementTool,
+  createStatusTool,
+  createRevertTool,
+  createReviewTool,
+} from "./tools/commands.js";
 
 export const MyPlugin: Plugin = async ({
   project,
@@ -44,6 +52,16 @@ export const MyPlugin: Plugin = async ({
   const setupOccurred = isConductorSetup(conductorPath);
 
   return {
+    tool: async () => {
+      return [
+        createSetupTool({ project, client, $, directory, worktree }),
+        createNewTrackTool({ project, client, $, directory, worktree }),
+        createImplementTool({ project, client, $, directory, worktree }),
+        createStatusTool({ project, client, $, directory, worktree }),
+        createRevertTool({ project, client, $, directory, worktree }),
+        createReviewTool({ project, client, $, directory, worktree }),
+      ];
+    },
     config: async (_config) => {
       // Register the Conductor Agent
       _config.agent = _config.agent || {};

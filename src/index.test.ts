@@ -40,4 +40,18 @@ describe("MyPlugin entry point", () => {
     expect(mockConfig.command).toHaveProperty("conductor:setup");
     expect(mockConfig.command).toHaveProperty("conductor:status");
   });
+
+  it("should register conductor tools", async () => {
+    const pluginInstance = await MyPlugin(mockInput);
+    if (!pluginInstance.tool) {
+      throw new Error("Plugin.tool is not defined");
+    }
+    
+    const tools = await pluginInstance.tool();
+    expect(Array.isArray(tools)).toBe(true);
+    expect(tools.length).toBe(6);
+    
+    const toolDescriptions = tools.map(t => t.description);
+    expect(toolDescriptions).toContain("Directives lookup tool for scaffolding the project and setting up the Conductor environment");
+  });
 });
