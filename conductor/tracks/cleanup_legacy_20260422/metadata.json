@@ -1,1 +1,0 @@
-{"track_id": "cleanup_legacy_20260422", "type": "chore", "status": "new", "created_at": "2026-04-22T19:48:00Z", "updated_at": "2026-04-22T19:48:00Z", "description": "Clean up legacy code, unused systems, and duplicate files across the project to reduce technical debt and simplify maintenance."}
