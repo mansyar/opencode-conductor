@@ -8,7 +8,7 @@ const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
 
 export const implementCommand = createConductorCommand({
-  name: "legacy/conductor/commands/conductor/implement.toml",
+  name: "implement.json",
   description: "Implements a feature or fixes a bug following a strict Plan and Spec.",
   args: {
     track_name: tool.schema.string().optional().describe("Specific track to implement. If omitted, selects the next incomplete track."),

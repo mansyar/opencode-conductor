@@ -31,10 +31,10 @@
 
 ## Phase 4: Update Legacy Path References
 
-- [ ] Task: Read and analyze src/utils/commandFactory.ts
-- [ ] Task: Update legacy path references
-  - [ ] Remove or redirect legacy path references
-  - [ ] Verify file still compiles
+- [x] Task: Read and analyze src/utils/commandFactory.ts
+- [x] Task: Update legacy path references
+  - [x] Remove or redirect legacy path references
+  - [x] Verify file still compiles
 
 ## Phase 5: Remove Orphan Utility Files
 

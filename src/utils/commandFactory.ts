@@ -20,9 +20,8 @@ async function loadPrompt(
   filename: string,
   replacements: Record<string, string> = {},
 ) {
-  // Try src/prompts first, then relative to project root
+  // Try src/prompts relative to project root
   const pathsToTry = [
-    join(__dirname, "..", "..", "legacy", "conductor", "commands", "conductor", filename),
     join(__dirname, "..", "prompts", "conductor", filename.replace(".toml", ".json"))
   ]
 
