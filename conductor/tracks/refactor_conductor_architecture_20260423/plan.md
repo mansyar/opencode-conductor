@@ -6,7 +6,7 @@
 - [x] **Task: Simplify `implementCommand`** 85dea58
     - [x] Update `src/tools/commands.ts` to remove `strategy_section` logic and file reading of `manual.md`.
 
-## Phase 2: Tool Alignment and Registration
+## Phase 2: Tool Alignment and Registration [checkpoint: 842dfd3]
 - [x] **Task: Align Prompt Extensions** f2c679b
     - [x] Update all command definitions in `src/tools/commands.ts` to use `.json` instead of `.toml`.
 - [x] **Task: Register Tools in Index** f2c679b
