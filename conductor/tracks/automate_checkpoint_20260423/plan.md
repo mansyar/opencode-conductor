@@ -9,7 +9,7 @@
 - [x] Task: Conductor - User Manual Verification 'Infrastructure' (Protocol in workflow.md) cc19e58
 
 ## Phase 2: Tool Implementation
-- [ ] Task: Define `conductor_checkpoint` schema in `src/tools/commands.ts`
+- [x] Task: Define `conductor_checkpoint` schema in `src/tools/commands.ts` 24efb34
 - [ ] Task: Implement `createCheckpointTool` logic
     - [ ] Integrate coverage validation
     - [ ] Integrate git commit/note logic
