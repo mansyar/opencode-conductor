@@ -167,6 +167,7 @@ describe("Command Tools", () => {
 
     it("should execute successfully if coverage is high enough", async () => {
       vi.mocked(coverageUtils.discoverCoverageCommand).mockReturnValue("npm test -- --coverage")
+      vi.mocked(coverageUtils.getCoverageThreshold).mockReturnValue(80)
       vi.mocked(execSync).mockReturnValue(Buffer.from("All files | 85.00 | ..."))
       vi.mocked(coverageUtils.parseCoverageOutput).mockReturnValue(85.00)
       vi.mocked(gitUtils.commitWithNote).mockReturnValue("mock_sha")
@@ -186,6 +187,7 @@ describe("Command Tools", () => {
 
     it("should fail if coverage is too low", async () => {
       vi.mocked(coverageUtils.discoverCoverageCommand).mockReturnValue("npm test -- --coverage")
+      vi.mocked(coverageUtils.getCoverageThreshold).mockReturnValue(80)
       vi.mocked(execSync).mockReturnValue(Buffer.from("All files | 75.00 | ..."))
       vi.mocked(coverageUtils.parseCoverageOutput).mockReturnValue(75.00)
 
@@ -201,6 +203,7 @@ describe("Command Tools", () => {
 
     it("should fail if tests fail or command errors", async () => {
       vi.mocked(coverageUtils.discoverCoverageCommand).mockReturnValue("npm test -- --coverage")
+      vi.mocked(coverageUtils.getCoverageThreshold).mockReturnValue(80)
       vi.mocked(execSync).mockImplementation(() => {
         throw new Error("Command failed")
       })

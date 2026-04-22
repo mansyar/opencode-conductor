@@ -21,6 +21,28 @@ export function discoverCoverageCommand(projectRoot: string): string {
 }
 
 /**
+ * Parses the coverage threshold from conductor/workflow.md.
+ * Defaults to 80 if not found.
+ */
+export function getCoverageThreshold(projectRoot: string): number {
+  const workflowPath = path.join(projectRoot, "conductor", "workflow.md");
+  if (fs.existsSync(workflowPath)) {
+    try {
+      const content = fs.readFileSync(workflowPath, "utf-8");
+      // Look for patterns like ">80%", "at least 80%", etc.
+      // Specifically target the "High Code Coverage" principle or Quality Gates
+      const match = content.match(/>(\d+)%/);
+      if (match && match[1]) {
+        return parseInt(match[1], 10);
+      }
+    } catch (e) {
+      // Ignore errors
+    }
+  }
+  return 80; // Default fallback
+}
+
+/**
  * Parses the coverage output to extract the statement coverage percentage.
  * Currently supports Vitest coverage table output.
  */

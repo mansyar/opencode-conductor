@@ -1,6 +1,6 @@
 import { describe, it, expect, vi, beforeEach } from "vitest";
 import * as fs from "fs";
-import { discoverCoverageCommand, parseCoverageOutput } from "./coverage.js";
+import { discoverCoverageCommand, parseCoverageOutput, getCoverageThreshold } from "./coverage.js";
 
 vi.mock("fs");
 
@@ -27,6 +27,29 @@ describe("coverage utils", () => {
       vi.mocked(fs.existsSync).mockReturnValue(false);
       const command = discoverCoverageCommand("/mock/dir");
       expect(command).toBe("npm test -- --coverage"); // Default fallback
+    });
+  });
+
+  describe("getCoverageThreshold", () => {
+    it("should parse threshold from workflow.md", () => {
+      vi.mocked(fs.existsSync).mockReturnValue(true);
+      vi.mocked(fs.readFileSync).mockReturnValue("# Workflow\nAim for >85% coverage");
+
+      const threshold = getCoverageThreshold("/mock/dir");
+      expect(threshold).toBe(85);
+    });
+
+    it("should return default if workflow.md does not exist", () => {
+      vi.mocked(fs.existsSync).mockReturnValue(false);
+      const threshold = getCoverageThreshold("/mock/dir");
+      expect(threshold).toBe(80);
+    });
+
+    it("should return default if no pattern found in workflow.md", () => {
+      vi.mocked(fs.existsSync).mockReturnValue(true);
+      vi.mocked(fs.readFileSync).mockReturnValue("# Workflow\nNo mention of coverage");
+      const threshold = getCoverageThreshold("/mock/dir");
+      expect(threshold).toBe(80);
     });
   });
 

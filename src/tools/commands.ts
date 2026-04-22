@@ -3,7 +3,7 @@ import { createConductorCommand } from '../utils/commandFactory.js';
 import { join, dirname } from 'path';
 import { fileURLToPath } from 'url';
 import { readFile } from 'fs/promises';
-import { discoverCoverageCommand, parseCoverageOutput } from '../utils/coverage.js';
+import { discoverCoverageCommand, parseCoverageOutput, getCoverageThreshold } from '../utils/coverage.js';
 import { commitWithNote } from '../utils/git.js';
 import { execSync } from 'child_process';
 
@@ -74,7 +74,7 @@ export const reviewCommand = createConductorCommand({
   },
 });
 
-export const checkpointCommand = (ctx: any) => {
+export const checkpointCommand = (ctx: any): ToolDefinition => {
   return tool({
     description: 'A programmatic system utility for Conductor to automate recording task completion via a checkpoint. It enforces quality gates (tests/coverage) and automates the Git commit/note lifecycle.',
     args: {
@@ -105,10 +105,11 @@ export const checkpointCommand = (ctx: any) => {
         const coverage = parseCoverageOutput(output);
 
         // 4. Enforce Gate
-        if (coverage < 80) {
+        const threshold = getCoverageThreshold(projectRoot);
+        if (coverage < threshold) {
           return JSON.stringify({
             status: 'error',
-            message: `Coverage too low (${coverage}%). Target is >80%.`,
+            message: `Coverage too low (${coverage}%). Target is >${threshold}%.`,
             output
           });
         }
