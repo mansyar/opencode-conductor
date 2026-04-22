@@ -4,7 +4,7 @@
 - [x] Task: Create `src/utils/coverage.ts` to handle coverage command discovery and parsing d812eae
     - [ ] Implement logic to detect coverage scripts in `package.json`
     - [ ] Implement parser for common coverage outputs (Vitest/LCOV)
-- [ ] Task: Create `src/utils/git.ts` utilities for programmatic commits and notes
+- [x] Task: Create `src/utils/git.ts` utilities for programmatic commits and notes 4b91464
     - [ ] Implement `commitWithNote` function
 - [ ] Task: Conductor - User Manual Verification 'Infrastructure' (Protocol in workflow.md)
 
