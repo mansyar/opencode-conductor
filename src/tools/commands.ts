@@ -33,8 +33,8 @@ export const implementCommand = createConductorCommand({
     track_name: tool.schema.string().optional().describe("Name or description of the track to implement"),
   },
   additionalContext: async (ctx, args) => {
-    // 1. Choose strategy based on OMO activity
-    const strategyFile = (ctx as any).isOMOActive ? "delegate.md" : "manual.md"
+    // 1. Load manual strategy
+    const strategyFile = "manual.md"
     const strategyPath = join(__dirname, "../prompts/strategies", strategyFile)
     
     let strategySection = ""
