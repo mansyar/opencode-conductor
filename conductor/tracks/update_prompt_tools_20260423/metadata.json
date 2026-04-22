@@ -1,0 +1,8 @@
+{
+  "track_id": "update_prompt_tools_20260423",
+  "type": "feature",
+  "status": "new",
+  "created_at": "2026-04-23T12:00:00Z",
+  "updated_at": "2026-04-23T12:00:00Z",
+  "description": "in the @src/prompts/conductor/ , i want to change ask_user to question and add to the prompt to not put long paragraph in the question tool. Put long paragraph in chat, then the question is only for questions."
+}
