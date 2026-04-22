@@ -8,13 +8,13 @@
     - [ ] Implement `commitWithNote` function
 - [x] Task: Conductor - User Manual Verification 'Infrastructure' (Protocol in workflow.md) cc19e58
 
-## Phase 2: Tool Implementation
+## Phase 2: Tool Implementation [checkpoint: 8cdff17]
 - [x] Task: Define `conductor_checkpoint` schema in `src/tools/commands.ts` 24efb34
 - [x] Task: Implement `createCheckpointTool` logic 1d5a802
     - [ ] Integrate coverage validation
     - [ ] Integrate git commit/note logic
 - [x] Task: Add unit tests for the checkpoint tool in `src/tools/commands.test.ts` 1ee8dfb
-- [ ] Task: Conductor - User Manual Verification 'Tool Implementation' (Protocol in workflow.md)
+- [x] Task: Conductor - User Manual Verification 'Tool Implementation' (Protocol in workflow.md) 8cdff17
 
 ## Phase 3: Integration & Testing
 - [ ] Task: Update `src/index.ts` to register the new tool
