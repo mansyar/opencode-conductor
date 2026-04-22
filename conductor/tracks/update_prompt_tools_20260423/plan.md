@@ -8,6 +8,6 @@
 - [x] Task: Conductor - User Manual Verification 'Phase 1: Update Prompt Files' (Protocol in workflow.md) 903469d
 
 ## Phase 2: Testing and Review
-- [ ] Task: Run the automated test suite to ensure no tests are broken by the prompt updates.
-    - [ ] Update any tests that explicitly check for `ask_user` occurrences.
+- [x] Task: Run the automated test suite to ensure no tests are broken by the prompt updates.
+    - [x] Update any tests that explicitly check for `ask_user` occurrences.
 - [ ] Task: Conductor - User Manual Verification 'Phase 2: Testing and Review' (Protocol in workflow.md)
