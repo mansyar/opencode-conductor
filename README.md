@@ -97,8 +97,29 @@ We highly recommend pinning the `@conductor` agent to a "flash" model for optima
 | `/conductor:setup` | Initialize the `conductor/` directory and project "Constitution". |
 | `/conductor:newTrack "desc"` | Start a new feature/bug Track with spec and plan generation. |
 | `/conductor:implement` | Start implementing the next pending task in the current track. |
+| `/conductor:review` | Review completed track work against guidelines and the plan. |
 | `/conductor:status` | Get a high-level overview of project progress and active tracks. |
 | `/conductor:revert` | Interactively select a task, phase, or track to undo via Git. |
+
+---
+
+## 📚 Documentation
+
+Comprehensive documentation is available in the `conductor/documentation/` directory:
+
+### Command Documentation
+- [Setup Command](conductor/documentation/setup_command_documentation.md) - Initialize project
+- [NewTrack Command](conductor/documentation/newtrack_command_documentation.md) - Create new tracks
+- [Implement Command](conductor/documentation/implement_command_documentation.md) - Start implementing tasks
+- [Review Command](conductor/documentation/review_command_documentation.md) - Review completed work
+- [Status Command](conductor/documentation/status_command_documentation.md) - Check project status
+- [Revert Command](conductor/documentation/revert_command_documentation.md) - Revert changes
+
+### Guides
+- [Workflow Documentation](conductor/documentation/workflow_documentation.md) - Common workflows
+- [Error Handling](conductor/documentation/error_handling_documentation.md) - Troubleshooting guide
+- [Integration Guide](conductor/documentation/integration_documentation.md) - OhMyOpenCode integration
+- [Complete Documentation](conductor/documentation/complete_documentation.md) - All-in-one reference
 
 ---
 
