@@ -52,8 +52,9 @@ describe("MyPlugin entry point", () => {
     
     const tools = pluginInstance.tool;
     expect(typeof tools).toBe("object");
-    expect(Object.keys(tools).length).toBe(6);
+    expect(Object.keys(tools).length).toBe(7);
     
     expect(tools.conductor_setup.description).toBe("Directives lookup tool for scaffolding the project and setting up the Conductor environment");
+    expect(tools.conductor_checkpoint.description).toContain("programmatic system utility");
   });
 });
