@@ -89,9 +89,9 @@
 - [x] **Task:** Refactor - Improve overall structure and consistency
 
 ### Task 6.2: Review and Approve
-- [ ] **Task:** Conduct peer review of documentation
-- [ ] **Task:** Address review feedback
-- [ ] **Task:** Final approval from project lead
+- [x] **Task:** Conduct peer review of documentation
+- [x] **Task:** Address review feedback
+- [x] **Task:** Final approval from project lead
 
 ### Task 6.3: Publish Documentation
 - [ ] **Task:** Add documentation to project repository
