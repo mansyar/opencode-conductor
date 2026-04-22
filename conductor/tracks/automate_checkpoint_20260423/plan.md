@@ -17,6 +17,6 @@
 - [x] Task: Conductor - User Manual Verification 'Tool Implementation' (Protocol in workflow.md) 8cdff17
 
 ## Phase 3: Integration & Testing
-- [ ] Task: Update `src/index.ts` to register the new tool
+- [x] Task: Update `src/index.ts` to register the new tool d22e8e5
 - [ ] Task: Verify end-to-end flow with a dummy task
 - [ ] Task: Conductor - User Manual Verification 'Integration' (Protocol in workflow.md)
