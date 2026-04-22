@@ -4,10 +4,10 @@
 - [x] Task: Setup new module and test suite (36e6f6b)
     - [x] Create `src/utils/workspace.ts` module.
     - [x] Create `src/utils/workspace.test.ts` test file.
-- [ ] Task: Write failing unit tests (Red Phase)
-    - [ ] Write unit test for `getFilesRecursively` logic.
-    - [ ] Write unit test for LLM context formatting logic.
-    - [ ] Write unit test for `setup_state.json` checking logic.
+- [x] Task: Write failing unit tests (Red Phase) (36e6f6b)
+    - [x] Write unit test for `getFilesRecursively` logic.
+    - [x] Write unit test for LLM context formatting logic.
+    - [x] Write unit test for `setup_state.json` checking logic.
 - [ ] Task: Conductor - User Manual Verification 'Phase 1: Setup and Test Strategy' (Protocol in workflow.md)
 
 ## Phase 2: Implementation
