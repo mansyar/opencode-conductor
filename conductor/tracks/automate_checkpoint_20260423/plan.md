@@ -13,7 +13,7 @@
 - [x] Task: Implement `createCheckpointTool` logic 1d5a802
     - [ ] Integrate coverage validation
     - [ ] Integrate git commit/note logic
-- [ ] Task: Add unit tests for the checkpoint tool in `src/tools/commands.test.ts`
+- [x] Task: Add unit tests for the checkpoint tool in `src/tools/commands.test.ts` 1ee8dfb
 - [ ] Task: Conductor - User Manual Verification 'Tool Implementation' (Protocol in workflow.md)
 
 ## Phase 3: Integration & Testing
