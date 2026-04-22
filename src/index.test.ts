@@ -29,6 +29,9 @@ describe("MyPlugin entry point", () => {
 
   it("should register conductor agent and commands", async () => {
     const pluginInstance = await MyPlugin(mockInput);
+    if (!pluginInstance.config) {
+      throw new Error("Plugin.config is not defined");
+    }
     const mockConfig: any = {};
     
     await pluginInstance.config(mockConfig);
@@ -47,11 +50,10 @@ describe("MyPlugin entry point", () => {
       throw new Error("Plugin.tool is not defined");
     }
     
-    const tools = await pluginInstance.tool();
-    expect(Array.isArray(tools)).toBe(true);
-    expect(tools.length).toBe(6);
+    const tools = pluginInstance.tool;
+    expect(typeof tools).toBe("object");
+    expect(Object.keys(tools).length).toBe(6);
     
-    const toolDescriptions = tools.map(t => t.description);
-    expect(toolDescriptions).toContain("Directives lookup tool for scaffolding the project and setting up the Conductor environment");
+    expect(tools.conductor_setup.description).toBe("Directives lookup tool for scaffolding the project and setting up the Conductor environment");
   });
 });

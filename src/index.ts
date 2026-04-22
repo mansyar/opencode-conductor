@@ -52,15 +52,13 @@ export const MyPlugin: Plugin = async ({
   const setupOccurred = isConductorSetup(conductorPath);
 
   return {
-    tool: async () => {
-      return [
-        createSetupTool({ project, client, $, directory, worktree }),
-        createNewTrackTool({ project, client, $, directory, worktree }),
-        createImplementTool({ project, client, $, directory, worktree }),
-        createStatusTool({ project, client, $, directory, worktree }),
-        createRevertTool({ project, client, $, directory, worktree }),
-        createReviewTool({ project, client, $, directory, worktree }),
-      ];
+    tool: {
+      conductor_setup: createSetupTool({ project, client, $, directory, worktree }),
+      conductor_new_track: createNewTrackTool({ project, client, $, directory, worktree }),
+      conductor_implement: createImplementTool({ project, client, $, directory, worktree }),
+      conductor_status: createStatusTool({ project, client, $, directory, worktree }),
+      conductor_revert: createRevertTool({ project, client, $, directory, worktree }),
+      conductor_review: createReviewTool({ project, client, $, directory, worktree }),
     },
     config: async (_config) => {
       // Register the Conductor Agent
