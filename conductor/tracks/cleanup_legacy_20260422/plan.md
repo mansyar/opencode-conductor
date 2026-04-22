@@ -7,7 +7,7 @@
   - [x] Search codebase for imports of src/tools/delegate.ts
   - [x] Search codebase for imports of src/utils/bootstrap.ts
   - [x] Search codebase for imports of src/utils/stateManager.ts
-- [x] Task: Identify all build scripts referencing legacy systems
+- [x] Task: Identify all build scripts referencing legacy systems [4f10b5f]
   - [x] Search for references to legacy/ in build scripts
   - [x] Search for references to dist/prompts/commands/
   - [x] Search for TOML conversion scripts
