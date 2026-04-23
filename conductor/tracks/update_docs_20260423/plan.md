@@ -1,9 +1,9 @@
 # Implementation Plan: Documentation Update (update_docs_20260423)
 
 ## Phase 1: Research & Discovery
-- [ ] Task: Use Socraticode to map all command arguments and prompt templates in `src/prompts/conductor/`.
-- [ ] Task: Analyze `src/index.ts` to confirm registration logic for agents and commands.
-- [ ] Task: Deep dive into `checkpointCommand` in `src/tools/commands.ts` to understand its full lifecycle.
+- [x] Task: Use Socraticode to map all command arguments and prompt templates in `src/prompts/conductor/`.
+- [x] Task: Analyze `src/index.ts` to confirm registration logic for agents and commands.
+- [x] Task: Deep dive into `checkpointCommand` in `src/tools/commands.ts` to understand its full lifecycle.
 
 ## Phase 2: Core Command Documentation Updates
 - [ ] Task: Update `conductor/documentation/setup_command_documentation.md`.
