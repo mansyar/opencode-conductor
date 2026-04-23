@@ -13,39 +13,33 @@ The command performs the following steps:
 
 ## Syntax
 ```
-/conductor:revert [track_name]
+/conductor:revert [target]
 ```
 
 ## Parameters
-- **track_name** (optional): Specific track to revert
+- **target** (optional): Specific target to revert (e.g., 'track <track_id>', 'phase <phase_name>', 'task <task_name>')
   - If not provided, the command will show revert options for all tracks
-  - If provided, the command will show revert options for the specified track
+  - If provided, the command will show revert options for the specified target
 
 ## Usage Examples
 
 ### Revert Specific Task
 ```
-/conductor:revert
+/conductor:revert "task Create user model"
 ```
 This will:
-1. Show a list of revertible tasks
-2. Allow you to select a specific task to revert
-3. Confirm the revert operation
-4. Revert the task and update the plan
+1. Revert the specific task and update the plan.
 
 ### Revert Specific Phase
 ```
-/conductor:revert
+/conductor:revert "phase Research and Discovery"
 ```
 This will:
-1. Show a list of revertible phases
-2. Allow you to select a specific phase to revert
-3. Confirm the revert operation
-4. Revert the phase and update the plan
+1. Revert the specific phase and update the plan.
 
 ### Revert Entire Track
 ```
-/conductor:revert "add_comprehensive_documentation_20260422"
+/conductor:revert "track add_comprehensive_documentation_20260422"
 ```
 This will:
 1. Show revert options for the specified track

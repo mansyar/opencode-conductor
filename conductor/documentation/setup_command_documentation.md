@@ -36,6 +36,11 @@ This will guide you through the complete setup process for a new project. The co
 ```
 If the setup process was interrupted, running the command again will resume from the last completed step. The setup state is tracked in `conductor/setup_state.json`.
 
+## Environmental Overrides
+When running as an OpenCode plugin, Conductor applies the following environmental rules:
+- **Ignore Files**: Uses `.opencodeignore` or `.gitignore` for analysis. `.gemini` files are not used in this environment.
+- **Model Selection**: Always selects the "flash" model for all tasks to ensure speed and efficiency.
+
 ### Setup for Existing (Brownfield) Project
 ```
 /conductor:setup

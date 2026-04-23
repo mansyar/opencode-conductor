@@ -10,7 +10,7 @@ The command performs the following steps:
 4. **Implement to Pass Tests (Green Phase)**: Writes application code to make the tests pass
 5. **Refactor**: Improves code clarity and performance without changing behavior
 6. **Verify Coverage**: Ensures code coverage meets project requirements
-7. **Commit Changes**: Stages and commits the implementation with proper messages
+7. **Execute Checkpoint**: Automates the Git commit and note attachment using the `checkpoint` tool
 8. **Update Plan**: Marks the task as complete in the implementation plan
 
 ## Syntax
@@ -167,17 +167,13 @@ Each task follows this workflow:
 6. **Verify Coverage**:
    - Run coverage reports
    - Target >80% coverage for new code
-7. **Commit Code Changes**:
-   - Stage all code changes
-   - Commit with clear, concise message
-8. **Attach Task Summary**:
-   - Get commit hash
-   - Create detailed summary
-   - Attach summary using git notes
-9. **Update Plan**:
+7. **Execute Checkpoint**:
+   - The agent invokes the `checkpoint` tool
+   - This automatically stages changes, commits them, and attaches the verification report as a Git note
+8. **Update Plan**:
    - Mark task as complete in `plan.md`
    - Append commit hash to task
-10. **Commit Plan Update**:
+9. **Commit Plan Update**:
     - Stage modified `plan.md`
     - Commit with descriptive message
 

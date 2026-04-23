@@ -12,11 +12,12 @@ The command performs the following steps:
 
 ## Syntax
 ```
-/conductor:newTrack "description"
+/conductor:newTrack [description]
 ```
 
 ## Parameters
-- **description** (required): A brief description of the track (feature, bug fix, chore, etc.)
+- **description** (optional): A brief description of the track (feature, bug fix, chore, etc.)
+  - If not provided, the command will guide you through defining the track description interactively.
   - Example: "Implement user authentication"
   - Example: "Fix login page styling issues"
   - Example: "Update dependencies to latest versions"
