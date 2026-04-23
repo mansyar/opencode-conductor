@@ -1,4 +1,4 @@
-import { execSync } from "child_process";
+import { execSync, spawnSync } from "child_process";
 
 interface CommitOptions {
   message: string;
@@ -16,13 +16,19 @@ export function commitWithNote(options: CommitOptions): string {
   execSync("git add .", { stdio: "pipe" });
 
   // 2. Commit
-  execSync(`git commit -m "${message}"`, { stdio: "pipe" });
+  const commitResult = spawnSync("git", ["commit", "-m", message], { stdio: "pipe" });
+  if (commitResult.status !== 0) {
+    throw new Error(`Git commit failed: ${commitResult.stderr.toString()}`);
+  }
 
   // 3. Get the commit hash
   const hash = execSync("git log -1 --format=\"%H\"", { stdio: "pipe" }).toString().trim();
 
   // 4. Attach the note
-  execSync(`git notes add -m "${note}" ${hash}`, { stdio: "pipe" });
+  const noteResult = spawnSync("git", ["notes", "add", "-m", note, hash], { stdio: "pipe" });
+  if (noteResult.status !== 0) {
+    throw new Error(`Git notes add failed: ${noteResult.stderr.toString()}`);
+  }
 
   return hash;
 }
