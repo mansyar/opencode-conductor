@@ -20,3 +20,6 @@
 - [x] Task: Update `src/index.ts` to register the new tool d22e8e5
 - [x] Task: Verify end-to-end flow with a dummy task 724b70b
 - [x] Task: Conductor - User Manual Verification 'Integration' (Protocol in workflow.md) 15dfede
+
+## Phase: Review Fixes
+- [x] Task: Apply review suggestions 2917e0c
