@@ -35,6 +35,10 @@ Initializes the Conductor directory and project "Constitution" for a new or exis
 /conductor:setup
 ```
 
+**Environmental Overrides (OpenCode Plugin):**
+- **Ignore Files**: Uses `.opencodeignore` or `.gitignore` for analysis.
+- **Model Selection**: Always selects the "flash" model for speed.
+
 **Expected Output:**
 - Welcome message with setup overview
 - Step-by-step guidance through setup process
@@ -50,12 +54,15 @@ Initializes the Conductor directory and project "Constitution" for a new or exis
 ### `/conductor:newTrack` Command
 Creates a new track (feature, bug fix, or chore) with specification and implementation plan.
 
-**Syntax:** `/conductor:newTrack "description"`
+**Syntax:** `/conductor:newTrack [description]`
 
 **Usage:**
 ```
 /conductor:newTrack "Implement user authentication with OAuth2"
 ```
+
+**Parameters:**
+- **description** (optional): Brief description of the track. If not provided, the command will guide you through defining it interactively.
 
 **Expected Output:**
 - Confirmation that track was created
@@ -82,7 +89,7 @@ Starts implementing the next pending task in the current track.
 - Confirmation of which task is being implemented
 - Progress through TDD phases
 - Test results and coverage information
-- Commit confirmation
+- **Checkpoint confirmation** (automated Git commit and note attachment)
 
 **Common Errors:**
 - No pending tasks found - Create a new track or select a different track
@@ -138,12 +145,15 @@ Displays a high-level overview of project progress and active tracks.
 ### `/conductor:revert` Command
 Interactively selects a task, phase, or track to undo via Git.
 
-**Syntax:** `/conductor:revert [track_name]`
+**Syntax:** `/conductor:revert [target]`
 
 **Usage:**
 ```
-/conductor:revert
+/conductor:revert "task Create user model"
 ```
+
+**Parameters:**
+- **target** (optional): Specific target to revert (e.g., 'track <track_id>', 'phase <phase_name>', 'task <task_name>').
 
 **Expected Output:**
 - List of revertible options
@@ -156,20 +166,38 @@ Interactively selects a task, phase, or track to undo via Git.
 
 ---
 
+### `checkpoint` Tool (Internal Utility)
+A programmatic system utility for Conductor to automate recording task completion.
+
+**Features:**
+- Enforces quality gates (tests and coverage >80%)
+- Automates Git commit with task description
+- Attaches detailed verification report as a Git note
+
+---
+
 ## Common Workflows
 
 ### 1. Setup → New Track → Implement → Review
 1. Run `/conductor:setup` to initialize the project
 2. Run `/conductor:newTrack "description"` to create a new track
 3. Run `/conductor:implement` to start implementing tasks
-4. Run `/conductor:review` to review completed work
+4. **Automated Checkpoint**: Occurs after each successful implementation task
+5. Run `/conductor:review` to review completed work
 
-### 2. Track Status Monitoring
+### 2. Phase Completion Verification and Checkpointing
+Triggered at the end of each development phase:
+1. Ensure test coverage for all phase changes
+2. Execute full automated test suite
+3. Follow the manual verification plan
+4. Create a phase checkpoint with an auditable report
+
+### 3. Track Status Monitoring
 1. Run `/conductor:status` to check project progress
 2. Review active tracks and their status
 3. Plan next steps based on status
 
-### 3. Reverting Changes
+### 4. Reverting Changes
 1. Run `/conductor:revert` to see revert options
 2. Select the task, phase, or track to revert
 3. Confirm the revert operation
@@ -191,6 +219,7 @@ Interactively selects a task, phase, or track to undo via Git.
 ### Common Implementation Errors
 - **Test failures** - Follow TDD workflow
 - **Coverage requirements not met** - Add more tests
+- **Checkpoint failed** - Fix test/coverage issues or Git configuration
 - **Commit fails due to pre-commit hooks** - Fix issues identified by hooks
 
 ---
@@ -250,6 +279,7 @@ Interactively selects a task, phase, or track to undo via Git.
 - `review_command_documentation.md` - Detailed `/conductor:review` documentation
 - `status_command_documentation.md` - Detailed `/conductor:status` documentation
 - `revert_command_documentation.md` - Detailed `/conductor:revert` documentation
+- `checkpoint_command_documentation.md` - Detailed `checkpoint` tool documentation
 - `workflow_documentation.md` - Common workflows guide
 - `error_handling_documentation.md` - Error handling guide
 

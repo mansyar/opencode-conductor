@@ -220,6 +220,24 @@ Error: Could not update task status in plan.md
 3. Manually update the task status from `[~]` to `[x]`
 4. Commit the plan changes separately
 
+### Error: Checkpoint failed
+**Cause**: The automated checkpoint failed due to test failures, low coverage, or Git issues.
+
+**Solution**: Review the checkpoint output, fix the underlying issue, and retry.
+
+**Example:**
+```
+/conductor:implement
+
+Error: Checkpoint failed: Coverage too low (75%). Target is >80%.
+```
+
+**Steps to fix:**
+1. Review the coverage report to identify gaps.
+2. Add more tests to reach the 80% threshold.
+3. If the failure was due to Git (e.g., identity not set), configure your Git user.
+4. Retry the implementation or manually run the checkpoint tool.
+
 ## 4. Common Review Errors
 
 ### Error: "No completed tracks found"

@@ -71,13 +71,13 @@ Next step: Run `/conductor:implement` to start working on tasks.
 1. Conductor selects the next pending task from the plan
 2. You follow the TDD workflow (Red → Green → Refactor)
 3. Conductor guides you through implementation
-4. Changes are committed with proper messages
+4. **Automated Checkpoint**: The agent invokes the `checkpoint` tool to stage changes, execute tests, verify coverage (>80%), and create a Git commit with a detailed verification report attached as a Git note.
 
 **Expected output:**
 - Confirmation of which task is being implemented
 - Progress through TDD phases
 - Test results and coverage information
-- Commit confirmation
+- **Checkpoint confirmation** with commit hash and Git note status
 
 **Example:**
 ```
@@ -99,9 +99,12 @@ Refactor Phase: Improving code...
 - Refactored for clarity and performance
 - All tests still pass ✓
 
-Coverage: 85% (target: 80%) ✓
+Executing Checkpoint...
+✓ Tests passed
+✓ Coverage: 85% (target: 80%)
+✓ Commit created: abc1234
+✓ Verification report attached as Git note
 
-Commit: abc1234 - feat(auth): Create test file for user authentication
 Task marked as complete in plan.
 ```
 
@@ -145,7 +148,23 @@ Track meets all requirements and can be marked as complete.
 ### Step 5: Repeat
 After completing a track, repeat steps 2-4 for the next feature or bug fix.
 
-## 2. Track Status Monitoring
+## 2. Phase Completion Verification and Checkpointing Protocol
+
+This protocol is executed immediately after a task is completed that also concludes a phase in the implementation plan.
+
+### Step 1: Ensure Test Coverage for Phase Changes
+Conductor identifies all files changed in the phase and verifies that corresponding test files exist for all code files.
+
+### Step 2: Execute Automated Tests
+Conductor runs the entire automated test suite for the project to ensure no regressions were introduced during the phase.
+
+### Step 3: Manual Verification Plan
+Conductor generates a step-by-step manual verification plan based on the phase's goals and asks for explicit user confirmation.
+
+### Step 4: Create Phase Checkpoint
+Upon user approval, Conductor creates a checkpoint commit and attaches a full auditable verification report as a Git note.
+
+## 3. Track Status Monitoring
 
 This workflow helps you monitor project progress and plan next steps.
 
@@ -208,7 +227,7 @@ Run `/conductor:status` regularly to:
 - Adjust plans based on current state
 - Keep team updated on project status
 
-## 3. Reverting Changes
+## 4. Reverting Changes
 
 This workflow helps you safely revert changes when needed.
 
@@ -269,7 +288,7 @@ After reverting:
 3. Continue implementation with corrected code
 4. Commit changes with proper messages
 
-## 4. Complete Track Workflow
+## 5. Complete Track Workflow
 
 This workflow describes the complete lifecycle of a track from creation to completion.
 
@@ -299,7 +318,7 @@ This workflow describes the complete lifecycle of a track from creation to compl
 3. Update project documentation if needed
 4. Archive or delete track folder (optional)
 
-## 5. Multi-Track Workflow
+## 6. Multi-Track Workflow
 
 When working on multiple tracks simultaneously:
 
@@ -321,7 +340,7 @@ When working on multiple tracks simultaneously:
 3. Repeat implementation workflow
 4. Continue until all tracks complete
 
-## 6. Team Collaboration Workflow
+## 7. Team Collaboration Workflow
 
 When working with a team:
 
@@ -348,7 +367,7 @@ When working with a team:
 3. Adjust priorities based on team capacity
 4. Plan next sprint or iteration
 
-## 7. Emergency Workflow
+## 8. Emergency Workflow
 
 When critical bugs need immediate attention:
 
@@ -370,7 +389,7 @@ When critical bugs need immediate attention:
 ### Step 4: Update Documentation
 Update any documentation affected by the fix.
 
-## 8. Maintenance Workflow
+## 9. Maintenance Workflow
 
 When performing maintenance tasks:
 

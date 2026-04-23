@@ -22,9 +22,9 @@
 
 ### 2.2 `/conductor:newTrack` Command
 - **Description**: Start a new feature/bug Track with spec and plan generation
-- **Syntax**: `/conductor:newTrack "description"`
+- **Syntax**: `/conductor:newTrack [description]`
 - **Parameters**:
-  - `description` (required): Brief description of the track
+  - `description` (optional): Brief description of the track
 - **Usage Examples**:
   - Creating a new feature track
   - Creating a bug fix track
@@ -43,7 +43,7 @@
 - **Usage Examples**:
   - Implementing the next pending task
   - Implementing a specific track
-- **Expected Output**: Task implementation status
+- **Expected Output**: Task implementation status with automated checkpoint
 - **Common Errors**:
   - No pending tasks found
   - Track not found
@@ -76,9 +76,9 @@
 
 ### 2.6 `/conductor:revert` Command
 - **Description**: Interactively select a task, phase, or track to undo via Git
-- **Syntax**: `/conductor:revert [track_name]`
+- **Syntax**: `/conductor:revert [target]`
 - **Parameters**:
-  - `track_name` (optional): Specific track to revert
+  - `target` (optional): Specific target to revert (e.g., 'track <track_id>', 'phase <phase_name>', 'task <task_name>')
 - **Usage Examples**:
   - Reverting a specific task
   - Reverting a phase
@@ -89,20 +89,33 @@
   - Track not found
 - **Troubleshooting**: Steps to resolve common revert issues
 
+### 2.7 `checkpoint` Tool
+- **Description**: Programmatic system utility to automate task completion
+- **Features**:
+  - Quality gate enforcement (tests/coverage)
+  - Automated Git commit and note attachment
+
 ## 3. Common Workflows
 
 ### 3.1 Setup → New Track → Implement → Review
 1. Run `/conductor:setup` to initialize the project
-2. Run `/conductor:newTrack "description"` to create a new track
+2. Run `/conductor:newTrack [description]` to create a new track
 3. Run `/conductor:implement` to start implementing tasks
-4. Run `/conductor:review` to review completed work
+4. **Automated Checkpoint**: Occurs after each successful task
+5. Run `/conductor:review` to review completed work
 
-### 3.2 Track Status Monitoring
+### 3.2 Phase Completion Verification and Checkpointing
+1. Ensure test coverage for all phase changes
+2. Execute full automated test suite
+3. Follow the manual verification plan
+4. Create a phase checkpoint with an auditable report
+
+### 3.3 Track Status Monitoring
 1. Run `/conductor:status` to check project progress
 2. Review active tracks and their status
 3. Plan next steps based on status
 
-### 3.3 Reverting Changes
+### 3.4 Reverting Changes
 1. Run `/conductor:revert` to see revert options
 2. Select the task, phase, or track to revert
 3. Confirm the revert operation
@@ -126,6 +139,8 @@
   - **Solution**: Follow TDD workflow to fix failing tests
 - **Error**: "Coverage requirements not met"
   - **Solution**: Add more tests to meet coverage requirements
+- **Error**: "Checkpoint failed"
+  - **Solution**: Fix test/coverage issues or Git configuration
 
 ## 5. Best Practices
 
