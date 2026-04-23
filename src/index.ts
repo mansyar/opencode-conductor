@@ -151,6 +151,7 @@ export const MyPlugin: Plugin = async ({
       _config.agent["conductor"] = {
         description: "Spec-Driven Development Architect. Manages the project lifecycle using the Conductor protocol.",
         prompt: agentPrompt,
+        mode: "primary",
         tools: {
           conductor_setup: true,
           conductor_new_track: true,
@@ -159,6 +160,7 @@ export const MyPlugin: Plugin = async ({
           conductor_revert: true,
           conductor_review: true,
           conductor_checkpoint: true,
+          question: true,
         },
       };
 
